@@ -35,7 +35,7 @@ public class Player : Character
 
         isGrounded = CheckGrounded();
 
-        horizontal = Input.GetAxisRaw("Horizontal");
+        // horizontal = Input.GetAxisRaw("Horizontal");
 
         if (isAttack)
         {

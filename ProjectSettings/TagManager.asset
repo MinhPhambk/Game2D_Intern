@@ -9,6 +9,7 @@ TagManager:
   - SavePoint
   - EnemyWall
   - Enemy
+  - Gate
   layers:
   - Default
   - TransparentFX
