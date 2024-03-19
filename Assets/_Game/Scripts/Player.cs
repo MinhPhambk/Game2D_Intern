@@ -26,7 +26,7 @@ public class Player : Character
 
     private void Awake()
     {
-        coin = PlayerPrefs.GetInt("coin", 0);
+        // coin = PlayerPrefs.GetInt("coin", 0);
     }
 
     void Update()
@@ -189,7 +189,7 @@ public class Player : Character
         {
             coin++;
             UIManager.Instance.SetCoin(coin);
-            PlayerPrefs.SetInt("coin", coin);
+            // PlayerPrefs.SetInt("coin", coin);
             Destroy(collision.gameObject);
         }
 
