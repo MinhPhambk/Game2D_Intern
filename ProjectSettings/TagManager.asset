@@ -10,6 +10,7 @@ TagManager:
   - EnemyWall
   - Enemy
   - Gate
+  - Heart
   layers:
   - Default
   - TransparentFX

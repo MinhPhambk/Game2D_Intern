@@ -7,10 +7,10 @@ using UnityEngine.UI;
 public class Character : MonoBehaviour
 {
     [SerializeField] private Animator anim;
-    [SerializeField] private Health healthBar;
+    [SerializeField] protected Health healthBar;
     [SerializeField] protected GameObject combatTextPrefab;
 
-    private float hp;
+    protected float hp;
     private string currentAnimName;
 
     public bool IsDead => hp <= 0;

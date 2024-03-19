@@ -193,6 +193,13 @@ public class Player : Character
             Destroy(collision.gameObject);
         }
 
+        if (collision.tag == "Heart")
+        {
+            this.hp = Math.Min(this.hp + 20, 100);
+            this.healthBar.SetNewHp(this.hp);
+            Destroy(collision.gameObject);
+        }
+
         if (collision.tag == "DeathZone")
         {
             ChangeAnim("die");
