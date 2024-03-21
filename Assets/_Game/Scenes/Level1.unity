@@ -153,7 +153,7 @@ Transform:
   m_GameObject: {fileID: 33660688}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.890596, y: -0.828854, z: -0.030503742}
+  m_LocalPosition: {x: 19.890596, y: -0.828854, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3037,7 +3037,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e91f558722bfb344097041e4240db97b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 1388698948}
   offset: {x: 0, y: 1.2, z: -15}
   speed: 10
 --- !u!1 &558220782
@@ -6109,7 +6109,7 @@ Transform:
   m_GameObject: {fileID: 1153362187}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.609404, y: -2.081146, z: 0.030503742}
+  m_LocalPosition: {x: 10.609404, y: -2.081146, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8612,6 +8612,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2187830541722155233, guid: 2f6088594852e4d47bc590819488a74a, type: 3}
+      propertyPath: m_Text
+      value: Level 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2513626731372920305, guid: 2f6088594852e4d47bc590819488a74a, type: 3}
       propertyPath: m_Name
       value: Canvas

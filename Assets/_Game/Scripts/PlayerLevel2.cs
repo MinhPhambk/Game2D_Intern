@@ -3,19 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : Character
+public class PlayerLevel2 : Character
 {
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private LayerMask groundLayer;
-    [SerializeField] private float speed = 250;
-    [SerializeField] private float jumpForce = 350;
+    [SerializeField] public float speed = 250;
+    [SerializeField] public float jumpForce = 350;
 
     [SerializeField] private Kunai kunaiPrefab;
     [SerializeField] private Transform throwPoint;
-    [SerializeField] private GameObject attackArea;
 
     private bool isGrounded = true;
-    private bool isJumping = false;
     private bool isAttack = false;
 
     private float horizontal;
@@ -45,28 +43,10 @@ public class Player : Character
 
         if (isGrounded)
         {
-            if (isJumping)
-            {
-                return;
-            }
-
-            // Jump
-            if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
-            {
-                Jump();
-            }
-
             // Run
             if (Mathf.Abs(horizontal) > 0.1f)
             {
                 ChangeAnim("run");
-            }
-
-            // Attack
-            if (Input.GetKeyDown(KeyCode.C) && isGrounded)
-            {
-                Attack();
-                return;
             }
 
             // Throw
@@ -76,14 +56,6 @@ public class Player : Character
                 return;
             }
         }
-
-        // Falling
-        if (!isGrounded && rb.velocity.y < 0)
-        {
-            ChangeAnim("fall");
-            isJumping = false;
-        }
-
 
         // Moving
         if (Mathf.Abs(horizontal) > 0.1f)
@@ -104,15 +76,7 @@ public class Player : Character
 
         isAttack = false;
 
-        transform.position = savePoint;
-
         ChangeAnim("idle");
-
-        DeActiveAttack();
-
-        SavePoint();
-
-        UIManager.Instance.SetCoin(coin);
     }
 
     public override void OnDespawn()
@@ -137,16 +101,6 @@ public class Player : Character
         return hit.collider != null;
     }
 
-    private void Attack()
-    {
-        ChangeAnim("attack");
-        isAttack = true;
-        Invoke(nameof(ResetAttack), 0.5f);
-
-        ActiveAttack();
-        Invoke(nameof(DeActiveAttack), 0.5f);
-    }
-
     private void Throw()
     {
         ChangeAnim("throw");
@@ -159,28 +113,6 @@ public class Player : Character
     private void ResetAttack()
     {
         isAttack = false;
-    }
-
-    private void Jump()
-    {
-        isJumping = true;
-        ChangeAnim("jump");
-        rb.AddForce(jumpForce * Vector2.up);
-    }
-
-    internal void SavePoint()
-    {
-        savePoint = transform.position;
-    }
-
-    private void ActiveAttack()
-    {
-        attackArea.SetActive(true);
-    }
-
-    private void DeActiveAttack()
-    {
-        attackArea.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
